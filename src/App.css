@@ -6,7 +6,18 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+input,
+textarea,
+button,
+select,
+div,
+img,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+button {
+  outline: none !important;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

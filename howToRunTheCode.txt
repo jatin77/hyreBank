@@ -1,0 +1,2 @@
+run npm install - To install all the dependencies
+run npm start - To run the project on your localhost:3000

@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import "./App.css";
+import Authentication from "./pages/auth/Authentication";
+import Transactions from "./pages/transactionsContainer/Transactions";
+import Capital from "./pages/capitalContainer/Capital";
+import PrivateRoute from "./components/utility/privateRoute/PrivateRoute";
+import ErrorRoute from "./pages/errorRoutePage/ErrorRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Route exact path="/auth" component={Authentication} />
+        {/* Private Routes */}
+        <PrivateRoute exact path="/" component={Transactions} />
+        <PrivateRoute path="/capital" component={Capital} />
+        <Route component={ErrorRoute} />
+      </Switch>
+    </>
   );
 }
 
